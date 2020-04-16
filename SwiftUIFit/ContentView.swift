@@ -8,7 +8,19 @@
 
 import SwiftUI
 
+struct  User {
+    let username, message: String
+}
+
 struct ContentView: View {
+    
+    let users: [User] = [
+    .init(username: "Dirty Connor", message: "I'm a dirty boy ;)"),
+    .init(username: "Dirty Elon", message: "Mars is cleaner"),
+    .init(username: "Dirty Mike", message: "And The Boys!"),
+    .init(username: "Dirty Will", message: "Willy the Kid")
+    ]
+    
     var body: some View {
         NavigationView {
             List {
