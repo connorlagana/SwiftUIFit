@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("Second")
                 Text("Third")
                 Text("Fourth")
-            }
+            }.navigationBarTitle(Text("Hello World"))
         }
     }
 }
