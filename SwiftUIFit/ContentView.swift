@@ -8,27 +8,31 @@
 
 import SwiftUI
 
-struct  User {
+struct  User: Identifiable {
+    var id: Int
+    
     let username, message: String
 }
 
 struct ContentView: View {
     
     let users: [User] = [
-    .init(username: "Dirty Connor", message: "I'm a dirty boy ;)"),
-    .init(username: "Dirty Elon", message: "Mars is cleaner"),
-    .init(username: "Dirty Mike", message: "And The Boys!"),
-    .init(username: "Dirty Will", message: "Willy the Kid")
+    .init(id: 0, username: "Dirty Connor", message: "I'm a dirty boy ;)"),
+    .init(id: 1, username: "Dirty Elon", message: "I'm going to mars"),
+    .init(id: 2, username: "Dirty Mike", message: "and the boys...."),
     ]
     
     var body: some View {
         NavigationView {
             List {
-                Text("First")
-                Text("Second")
-                Text("Third")
-                Text("Fourth")
-            }.navigationBarTitle(Text("Hello World"))
+                Text("Users").font(.largeTitle)
+                ForEach(users, id: \.id) { user in
+                    Text(user.username).font(.headline)
+                }
+                
+                
+//                Text($0.username)
+            }.navigationBarTitle(Text("The Boys"))
         }
     }
 }
