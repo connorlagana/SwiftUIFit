@@ -32,7 +32,9 @@ struct ContentView: View {
                         Image("1")
                             .resizable()
                             .frame(width: 50, height: 50)
-                            .clipped()
+                            .overlay(Circle().stroke(Color.red, lineWidth: 4))
+                            .clipShape(Circle())
+//                            .clipped()
                         VStack (alignment: .leading) {
                             Text(user.username).font(.headline)
                             Text(user.message).font(.subheadline)
