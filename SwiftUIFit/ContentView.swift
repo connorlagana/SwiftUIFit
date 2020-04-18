@@ -26,8 +26,20 @@ struct ContentView: View {
         NavigationView {
             List {
                 Text("Users").font(.largeTitle)
+                
                 ForEach(users, id: \.id) { user in
-                    Text(user.username).font(.headline)
+                    HStack {
+                        Image("1")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipped()
+                        VStack (alignment: .leading) {
+                            Text(user.username).font(.headline)
+                            Text(user.message).font(.subheadline)
+                        }.padding(.leading, 8)
+                        
+                    }.padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
+                    
                 }
                 
                 
